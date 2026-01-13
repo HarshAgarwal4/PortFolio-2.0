@@ -1,5 +1,5 @@
 import React, { useState  , useRef} from 'react';
-import Skills from '../components/skills';
+import Skills from '../components/SkillSection';
 import Hero from '../components/Hero';
 import Header from '../components/Header';
 import Projects from '../components/projects';

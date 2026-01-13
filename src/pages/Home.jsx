@@ -2,7 +2,7 @@ import React, { useState  , useRef} from 'react';
 import Skills from '../components/SkillSection';
 import Hero from '../components/Hero';
 import Header from '../components/Header';
-import Projects from '../components/projects';
+import Projects from '../components/ProjectSection';
 import Contact from '../components/contact';
 import Footer from '../components/footer';
 import { useStore } from '../zustand/store';

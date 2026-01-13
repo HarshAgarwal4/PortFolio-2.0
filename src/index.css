@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+* {
+  font-family: 'poppins';
+  scrollbar-width: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(20deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(20deg);
+  }
+}

@@ -79,9 +79,9 @@ export const useStore = create((set, get) => ({
                     "JARVIS is a voice-based AI assistant that allows hands-free PC control using Python-based voice automation.",
                 category: ["python"],
                 images: [
-                    "/images/task-1.png",
-                    "/images/task-2.png",
-                    "/images/task-3.png"
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768391316/Screenshot_2026-01-14_171333_rzd9de.png",
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768391318/Screenshot_2026-01-14_171713_ws0jio.png",
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768391315/Screenshot_2026-01-14_171530_o7dgpu.png"
                 ],
                 features: [
                     "AI interaction mode",

@@ -1,5 +1,20 @@
+import { useEffect, useState } from "react";
+
 const ProjectModal = ({ project, onClose }) => {
+  const [current, setCurrent] = useState(0);
+
   if (!project) return null;
+
+  const total = project.images.length;
+
+  const next = () => setCurrent((prev) => (prev + 1) % total);
+  const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
+
+  useEffect(() => {
+    if (total <= 1) return;
+    const interval = setInterval(next, 2500);
+    return () => clearInterval(interval);
+  }, [total]);
 
   return (
     <div
@@ -18,22 +33,71 @@ const ProjectModal = ({ project, onClose }) => {
         <button
           onClick={onClose}
           className="absolute top-3 right-3 sm:top-4 sm:right-4
-            text-gray-500 hover:text-gray-800 text-2xl font-bold z-10"
+          text-gray-500 hover:text-gray-800 text-2xl font-bold z-20"
           aria-label="Close"
         >
           ×
         </button>
 
-        {/* IMAGE */}
-        <img
-          src={project.images[0]}
-          alt={project.title}
-          className="
-            w-full h-48 sm:h-56 md:h-72
-            object-cover
-            rounded-t-xl
-          "
-        />
+        {/* IMAGE CAROUSEL */}
+        <div className="relative w-full h-56 sm:h-64 md:h-80 bg-black rounded-t-xl overflow-hidden">
+
+          {/* IMAGE */}
+          <img
+            loading="lazy"
+            src={project.images[current]}
+            alt={project.title}
+            className="
+              w-full h-full
+              object-contain
+              transition-opacity duration-500
+            "
+          />
+
+          {/* ARROWS */}
+          {total > 1 && (
+            <>
+              <button
+                onClick={prev}
+                className="
+                  absolute left-3 top-1/2 -translate-y-1/2
+                  bg-black/50 text-white
+                  p-2 rounded-full
+                  hover:bg-black/70 transition
+                "
+              >
+                ‹
+              </button>
+
+              <button
+                onClick={next}
+                className="
+                  absolute right-3 top-1/2 -translate-y-1/2
+                  bg-black/50 text-white
+                  p-2 rounded-full
+                  hover:bg-black/70 transition
+                "
+              >
+                ›
+              </button>
+            </>
+          )}
+
+          {/* DOT INDICATORS */}
+          {total > 1 && (
+            <div className="absolute bottom-3 w-full flex justify-center gap-2">
+              {project.images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition
+                    ${i === current ? "bg-white" : "bg-white/40"}
+                  `}
+                />
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* CONTENT */}
         <div className="p-4 sm:p-6 md:p-8">
@@ -80,11 +144,7 @@ const ProjectModal = ({ project, onClose }) => {
           </div>
 
           {/* ACTION BUTTONS */}
-          <div className="
-            flex flex-col sm:flex-row
-            gap-3 sm:gap-4
-            mt-6 pt-6 border-t
-          ">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 pt-6 border-t">
             <a
               href={project.liveUrl}
               target="_blank"

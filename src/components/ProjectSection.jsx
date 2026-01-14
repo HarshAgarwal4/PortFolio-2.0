@@ -10,7 +10,7 @@ const Projects = ({ portfolioData }) => {
     category === "all"
       ? portfolioData.projects
       : portfolioData.projects.filter(
-          (project) => project.category === category
+          (project) => project.category.includes(category)
         );
 
   // Show only 6 unless expanded
@@ -46,7 +46,7 @@ const Projects = ({ portfolioData }) => {
               >
                 <option value="all">All</option>
                 <option value="frontend">Frontend</option>
-                <option value="fullstack">Full Stack</option>
+                <option value="full stack">Full Stack</option>
                 <option value="python">Python</option>
               </select>
             </div>

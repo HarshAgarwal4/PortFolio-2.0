@@ -167,6 +167,36 @@ export const useStore = create((set, get) => ({
             },
 
             {
+                "title": "Python GUI Notepad",
+                "description": "A desktop-based Notepad application built using Python and Tkinter, featuring essential text editor functionalities such as file handling, keyboard shortcuts, undo/redo support, and safe exit handling with unsaved changes detection.",
+                "category": ["python", "GUI"],
+                "images": [
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768662115/Screenshot_2026-01-17_202917_bbzoba.png",
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768662124/Screenshot_2026-01-17_202901_duh06e.png",
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768662127/Screenshot_2026-01-17_202948_ifudpb.png",
+                    "https://res.cloudinary.com/dxarn4ttv/image/upload/v1768662128/Screenshot_2026-01-17_203000_mgosdr.png"
+                ],
+                "features": [
+                    "Create new text files",
+                    "Open existing text files",
+                    "Save and Save As functionality",
+                    "Unsaved changes detection before closing",
+                    "Undo and Redo support",
+                    "Cut, Copy, and Paste operations",
+                    "Scrollable text area",
+                    "Native file dialogs",
+                    "Graceful error handling"
+                ],
+                "technologies": [
+                    "Python",
+                    "Tkinter",
+                    "PyInstaller"
+                ],
+                "liveUrl": "https://drive.google.com/file/d/1fFVSSJGTaK_otiJ2sjkI7MQWamFb92hZ/view?usp=drive_link",
+                "repoUrl": "https://github.com/HarshAgarwal4/NotePad-GUI-python"
+            },
+
+            {
                 title: "URL Shortener",
                 description:
                     "A backend-focused URL shortening service with redirection tracking and click analytics.",
